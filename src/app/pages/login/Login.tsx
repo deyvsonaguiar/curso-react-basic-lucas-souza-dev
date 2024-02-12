@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
 import { InputLogin } from "../../shared/components"
+import { ButtonLogin } from "../../shared/components/ButtonLogin"
 
 export const Login = () => {
   const [email, setEmail] = useState('')
@@ -9,8 +10,23 @@ export const Login = () => {
 
 
   const handleEntrar = () => {
-    console.log("Email: " + email)
-    console.log("Senha: " + password)
+    if (!email || !password) {
+      console.log("Preencha os campos de email e senha")
+    } else {
+      console.log("Email: " + email)
+      console.log("Senha: " + password)
+      console.log("Usuário logado com sucesso!")
+    }
+
+    
+  }
+
+  const handleCadastrar = () => {
+    if ((email || password === '') && (!email || !password) ) {
+      console.log("Preencha os campos de email e/ou senha")
+    } else {
+      console.log("O email " + email + " foi cadastrado com sucesso! Logue novamente clicando em ENTRAR")
+    }
   }
   return (
     <div>
@@ -33,10 +49,25 @@ export const Login = () => {
             onPressEnter={() => buttonEnterRef.current?.focus()}
             onChange={newValue => setPassword(newValue)}
           />
-          <button 
+          {/* <button 
             type="button"
             ref={buttonEnterRef}
-            onClick={handleEntrar}>Entrar</button>
+            onClick={handleEntrar}>
+              Entrar
+          </button> */}
+
+          <ButtonLogin
+            type='button'
+            ref={buttonEnterRef}
+            onClick={handleEntrar}>
+              Entrar
+          </ButtonLogin>
+          <ButtonLogin
+            type='button'
+            ref={buttonEnterRef}
+            onClick={handleCadastrar}>
+            Cadastrar
+          </ButtonLogin>
         </div>
       </form>
     </div>
