@@ -8,7 +8,7 @@ interface IUsuarioLogadoProvider {
   children: React.ReactNode
 }
 
-const UsuarioLogadoContext = createContext<IUsuarioLogadoContextData>(
+export const UsuarioLogadoContext = createContext<IUsuarioLogadoContextData>(
   {} as IUsuarioLogadoContextData
 )
 
