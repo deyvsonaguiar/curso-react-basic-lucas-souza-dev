@@ -1,6 +1,7 @@
-import { useRef, useState } from "react"
-import { InputLogin } from "../../shared/components"
-import { ButtonLogin } from "../../shared/components/ButtonLogin"
+import { useRef, useState } from 'react'
+
+import { InputLogin } from '../../shared/components'
+import { ButtonLogin } from '../../shared/components/ButtonLogin'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
@@ -8,35 +9,36 @@ export const Login = () => {
   const inputPassordRef = useRef<HTMLInputElement>(null)
   const buttonEnterRef = useRef<HTMLButtonElement>(null)
 
-
   const handleEntrar = () => {
     if (!email || !password) {
-      console.log("Preencha os campos de email e senha")
+      console.log('Preencha os campos de email e senha')
     } else {
-      console.log("Email: " + email)
-      console.log("Senha: " + password)
-      console.log("Usuário logado com sucesso!")
+      console.log('Email: ' + email)
+      console.log('Senha: ' + password)
+      console.log('Usuário logado com sucesso!')
     }
-
-    
   }
 
   const handleCadastrar = () => {
-    if ((email || password === '') && (!email || !password) ) {
-      console.log("Preencha os campos de email e/ou senha")
+    if ((email || password === '') && (!email || !password)) {
+      console.log('Preencha os campos de email e/ou senha')
     } else {
-      console.log("O email " + email + " foi cadastrado com sucesso! Logue novamente clicando em ENTRAR")
+      console.log(
+        'O email ' +
+          email +
+          ' foi cadastrado com sucesso! Logue novamente clicando em ENTRAR'
+      )
     }
   }
   return (
     <div>
       <form>
         <div>
-          <InputLogin 
+          <InputLogin
             type="text"
             label="Email"
             value={email}
-            onChange={newValue => setEmail(newValue)}
+            onChange={(newValue) => setEmail(newValue)}
             onPressEnter={() => inputPassordRef.current?.focus()}
           />
         </div>
@@ -47,7 +49,7 @@ export const Login = () => {
             value={password}
             ref={inputPassordRef}
             onPressEnter={() => buttonEnterRef.current?.focus()}
-            onChange={newValue => setPassword(newValue)}
+            onChange={(newValue) => setPassword(newValue)}
           />
           {/* <button 
             type="button"
@@ -57,15 +59,17 @@ export const Login = () => {
           </button> */}
 
           <ButtonLogin
-            type='button'
+            type="button"
             ref={buttonEnterRef}
-            onClick={handleEntrar}>
-              Entrar
+            onClick={handleEntrar}
+          >
+            Entrar
           </ButtonLogin>
           <ButtonLogin
-            type='button'
+            type="button"
             ref={buttonEnterRef}
-            onClick={handleCadastrar}>
+            onClick={handleCadastrar}
+          >
             Cadastrar
           </ButtonLogin>
         </div>
