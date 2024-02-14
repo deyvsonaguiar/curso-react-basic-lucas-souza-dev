@@ -1,5 +1,11 @@
-import { BrowserRouter, Routes as Switch, Route, Navigate } from "react-router-dom"
-import { Dashboard, Login } from "../pages"
+import {
+  BrowserRouter,
+  Routes as Switch,
+  Route,
+  Navigate
+} from 'react-router-dom'
+
+import { Dashboard, Login } from '../pages'
 
 export const Routes = () => {
   return (
